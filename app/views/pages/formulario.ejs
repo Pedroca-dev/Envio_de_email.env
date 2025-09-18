@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário Padrão</title>
+  <link rel="stylesheet" href="/css/style.css"> <!-- opcional -->
+</head>
+<body>
+  <h1>Contato</h1>
+
+  <form action="/submit" method="POST">
+    <p>
+      <label for="nome">Nome:</label><br>
+      <input type="text" id="nome" name="nome" required>
+    </p>
+
+    <p>
+      <label for="email">E-mail:</label><br>
+      <input type="email" id="email" name="email" required>
+    </p>
+    <p>
+      <label for="assunto">Assunto:</label><br>
+      <input type="text" id="" name="Anote sua mensagem" required>
+    </p>
+    
+    <p>
+        <label for="mensagem">Mensagem:</label><br>
+        <input type="text" id="" name="Escreva sua mensagem..." required>
+      </p>
+      <p>
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXX-XXXX" pattern="[0-9]{4}-[0-9]{4}" title="Número de telefone deve ter o formato XXXX-XXXX">
+      </p>
+
+    <p>
+      <button type="submit">Enviar</button>
+    </p>
+  </form>
+
+  <% if (typeof mensagem !== 'undefined') { %>
+    <p><strong><%= mensagem %></strong></p>
+  <% } %>
+</body>
+</html>
