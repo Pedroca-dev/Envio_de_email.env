@@ -13,8 +13,8 @@ const validarContato = [
   
   body('telefone')
     .notEmpty().withMessage('Telefone é obrigatório')
-    .matches(/^\(\d{2}\)\s?\d{4,5}-?\d{4}$/).withMessage('Formato de telefone inválido. Use (XX) XXXXX-XXXX')
-    .trim(),
+    .trim()
+    .isLength({ min: 10, max: 15 }).withMessage('Telefone deve ter entre 10 e 15 dígitos'),
   
   body('assunto')
     .notEmpty().withMessage('Assunto é obrigatório')

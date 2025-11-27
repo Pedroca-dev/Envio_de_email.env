@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 
-// Configuração do transportador de e-mail
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
   port: process.env.EMAIL_PORT,
@@ -11,20 +10,21 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Função para enviar e-mail de contato
 async function enviarEmailContato(dados) {
   const { nome, email, telefone, assunto, mensagem } = dados;
 
   const mailOptions = {
     from: process.env.EMAIL_FROM,
     to: process.env.EMAIL_TO,
-    subject: `Contato: ${assunto}`,
+    replyTo: email,
+    subject: `Contato de ${nome}: ${assunto}`,
     html: `
       <h2>Nova mensagem de contato</h2>
       <p><strong>Nome:</strong> ${nome}</p>
       <p><strong>E-mail:</strong> ${email}</p>
       <p><strong>Telefone:</strong> ${telefone}</p>
       <p><strong>Assunto:</strong> ${assunto}</p>
+      <hr>
       <p><strong>Mensagem:</strong></p>
       <p>${mensagem}</p>
     `

@@ -9,13 +9,16 @@
 <body>
   <h1><%= titulo %></h1>
   
-  <p style="color: green; font-size: 1.2em;">
-    <%= mensagem %>
-  </p>
+  <section class="mensagem-sucesso">
+    <p style="font-size: 1.1em; margin: 0;">
+      <%= mensagem %>
+    </p>
+  </section>
 
-  <p>
-    <a href="/contato">Enviar outra mensagem</a> | 
-    <a href="/">Voltar para a página inicial</a>
-  </p>
+  <section class="links">
+    <p>
+      <a href="/contato">← Enviar outra mensagem</a>
+    </p>
+  </section>
 </body>
 </html>
